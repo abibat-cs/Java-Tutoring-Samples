@@ -1,0 +1,38 @@
+// Library System - Shows Abstraction and Polymorphism
+abstract class LibraryItem {
+    String title;
+    public LibraryItem(String title) {
+        this.title = title;
+    }
+    abstract void borrowItem();
+}
+
+class Book extends LibraryItem {
+    public Book(String title) {
+        super(title);
+    }
+    @Override
+    void borrowItem() {
+        System.out.println("Book '" + title + "' has been borrowed for 14 days.");
+    }
+}
+
+class DVD extends LibraryItem {
+    public DVD(String title) {
+        super(title);
+    }
+    @Override
+    void borrowItem() {
+        System.out.println("DVD '" + title + "' has been borrowed for 3 days.");
+    }
+}
+
+public class LibrarySystem {
+    public static void main(String[] args) {
+        LibraryItem item1 = new Book("Java for Beginners");
+        LibraryItem item2 = new DVD("Data Structures Tutorial");
+        
+        item1.borrowItem(); // Polymorphism in action
+        item2.borrowItem();
+    }
+}
